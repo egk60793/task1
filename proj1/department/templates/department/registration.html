@@ -1,0 +1,13 @@
+{% extends 'department/layout.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+<!-- открывается форма регистрации с полями Фамилия Имя и ОТР-пароль -->
+{% block content %}
+<form action="{% url 'contacts' %}" method="post">
+    {% csrf_token %}
+    <p>Имя и фамилия пользователя: {{ form.user_name }}</p>
+    <p>Введите OTP: {{ form.otp }}</p>
+    <button type="submit" class="btn btn-secondary">Далее...</button>
+</form>
+{% endblock %}

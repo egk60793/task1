@@ -1,0 +1,12 @@
+{% extends 'department/layout.html' %}
+
+{% block title %}Введите номер телефона{% endblock %}
+
+
+{% block content %}
+<form action="{% url 'contacts' %}" method="post">
+    {% csrf_token %}
+    <p>Введите номер телефона: {{ form.number }}</p>
+    <button type="submit" class="btn btn-secondary">Далее...</button>
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'department/layout.html' %}
+
+{% block title %}Регистрация_3{% endblock %}
+
+<!-- система спрашивает только ОТР-пароль -->
+{% block content %}
+<form action="{% url 'contacts' %}" method="post">
+    {% csrf_token %}
+    <p>Введите OTP: {{ form.otp }}</p>
+    <button type="submit" class="btn btn-secondary">Далее...</button>
+</form>
+{% endblock %}
