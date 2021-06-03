@@ -7,6 +7,7 @@
 <form action="{% url 'contacts' %}" method="post">
     {% csrf_token %}
     <p>Введите номер телефона: {{ form.number }}</p>
+    <p>{{ form.number.as_hidden }}</p>
     <button type="submit" class="btn btn-secondary">Далее...</button>
 </form>
 {% endblock %}

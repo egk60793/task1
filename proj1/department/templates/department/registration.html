@@ -8,6 +8,8 @@
     {% csrf_token %}
     <p>Имя и фамилия пользователя: {{ form.user_name }}</p>
     <p>Введите OTP: {{ form.otp }}</p>
+    <p>{{ form.number.as_hidden }}</p>
+    <p>{{ otp }}</p>
     <button type="submit" class="btn btn-secondary">Далее...</button>
 </form>
 {% endblock %}
