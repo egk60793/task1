@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'department/css/styles.css' %}">
-
+    <script src="https://unpkg.com/vue"></script>
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
@@ -21,8 +21,28 @@
   </div>
 </nav>
 <div class="my_my">
+
+    {% verbatim %}
+        <div id="app">
+            {{ message }}
+        </div>
+    {% endverbatim %}
+
 {% block content %}
 
 {% endblock %}
 </div>
+<script>
+    let app = new Vue ({
+    el: '#app',
+    data: {
+    message: 'Привет, Мир!'},
+    created() {
+
+  fetch("/get_users")
+    .then(response => response.json())
+    .then(data => (this.message = data.name));
+}
+});
+</script>
 </html>
