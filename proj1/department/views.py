@@ -41,7 +41,7 @@ def contacts(request):
         return render(request, 'department/registration.html', {'otp': random_otp, 'form': form})
     if len(check) > 0 and len(str(employee_or_not)) == 21:
         User.objects.filter(phone_number=request.POST.get('number')).update(user_name=request.POST.get('user_name'))
-        return render(request, 'department/say_hello.html', {'all_users': all_users[0]})
+        return render(request, 'department/say_hello.html', {'last_users': all_users[0]})
 
 
 
